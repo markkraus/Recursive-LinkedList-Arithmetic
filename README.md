@@ -36,14 +36,17 @@ The best compression ratio for the Predefined Unix Compress Program was **wacky.
 - I think for the same reasons as the 12-bit codewords algorithm apply for this algorithm.<br>
 
 ## Worst Ratios
-The best compression ratio for the 12-bit Codewords was **wacky.lzw (4,303:921,654)**.<br>
-- I think for a .bmp file, the tight bound on codebook size may help because the patterns gotten in this file type will be minimized and repeated.<br>
+The worst compression ratio for the 12-bit Codewords was **Lego-big.lzw**.<br>
+- I assume because a .gif file has many random patterns, the compression is hard to get with many reusable patterns, so the max codebook length is hit early.<br>
 <br>
-The best compression ratio for the Variable-bit Codewords w/ Dictionary Reset was **all.lzw (24,290:3,031,040)**.<br>
-- Because the file size is so large, resetting can help introduce more new patterns and better compress the file over time.<br>
+The worst compression ratio for the Variable-bit Codewords w/ Dictionary Reset was **Lego-big.lzw**.<br>
+- Again, my reasoning is the same as for the algorithm above. I also think that even with a reset of the dictionary we don't find alot of patterns.<br>
 <br>
-The best compression ratio for the Variable-bit Codewords w/out Dictionary Reset was **bmps.lzw (80,913:1,105,920)**.<br>
-- I think with this file type, not resetting may help because the patterns may remain the same throughout the entire file.<br>
+The worst compression ratio for the Variable-bit Codewords w/out Dictionary Reset was **Lego-big.lzw**.<br>
+- My reasoning is consistent with the reason I gave for the 12-bit Codeword algorithm.<br>
 <br>
-The best compression ratio for the Predefined Unix Compress Program was **wacky.lzw (3,952:921,654)**.<br>
-- I think for the same reasons as the 12-bit codewords algorithm apply for this algorithm.<br>
+The worst compression ratio for the Predefined Unix Compress Program was **Lego-big.lzw**.<br>
+- The compression was not even able to take place in this test.<br>
+
+# In closing
+Seeing the compression take place in different algorithms was interesting, because I can now see why it is difficult to determine the correct compression algorithm for a given file. Each file is incredibly unique and many factors play in to the compression of a file, like our codebook size, or how we want to handle a full codebook, and how to properly adjust the codebook as to not throw the program out of sync. This project was certainly a great way for me to enhance my knowledge on compression as it pertains to many different file types.
